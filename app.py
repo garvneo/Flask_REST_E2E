@@ -1,12 +1,12 @@
 import os
-import redis
+# import redis
 
 from flask import Flask, jsonify
 from flask_smorest import Api
 from flask_jwt_extended import JWTManager
 from flask_migrate import Migrate
 from dotenv import load_dotenv
-from rq import Queue
+# from rq import Queue
 
 from db import db
 from blocklist import BLOCKLIST
@@ -20,11 +20,15 @@ from resources.tag import blp as TagBlueprint
 def create_app(db_url=None):
     app = Flask(__name__)
     load_dotenv()
-
-    connection = redis.from_url(
-        os.getenv("REDIS_URL")
-    )
-    app.queue = Queue("emails", connection=connection)
+    
+    # Info: As background worker is a paid service at render.com hence commented,
+    # but can be uncommented and used for running locally.
+    
+    # connection = redis.from_url(
+    #     os.getenv("REDIS_URL")
+    # )
+    # app.queue = Queue("emails", connection=connection)
+    
     app.config["API_TITLE"] = "Stores REST API"
     app.config["API_VERSION"] = "v1"
     app.config["OPENAPI_VERSION"] = "3.0.3"
@@ -42,6 +46,8 @@ def create_app(db_url=None):
 
     app.config["JWT_SECRET_KEY"] = "neo"
     jwt = JWTManager(app)
+
+    # Info: just an extra added functionality
 
     # @jwt.additional_claims_loader
     # def add_claims_to_jwt(identity):

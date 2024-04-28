@@ -6,4 +6,4 @@ app and the logout resource so that tokens can be added to the blocklist when th
 user logs out.
 """
 
-BLOCKLIST = set()    # Will use redis or db for this in the future.
+BLOCKLIST = set()    # Redis and db can be used for same.

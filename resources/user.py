@@ -53,12 +53,20 @@ class UserRegister(MethodView):
         db.session.add(user)
         db.session.commit()
 
-        current_app.queue.enqueue(send_user_registration_email, user.email, user.username)
-        send_simple_message(
-            to=user.email,
-            subject="Successfully signed up",
-            body=f"Hi {user.username}! You have successfully signed up to the Stores REST API."
-        )
+        # Info: As background worker is a paid service at render.com hence commented,
+        # but can be uncommented and used for running locally.
+
+        # current_app.queue.enqueue(send_user_registration_email, user.email, user.username)
+
+        # Send: simple mail
+        # send_simple_message(
+        #     to=user.email,
+        #     subject="Successfully signed up",
+        #     body=f"Hi {user.username}! You have successfully signed up to the Stores REST API."
+        # )
+
+        # Send: beautified html mail
+        send_user_registration_email(user.email, user.username)
 
         return {"message": "User created successfully."}, 201
 
@@ -90,12 +98,6 @@ class UserLogout(MethodView):
 
 @blp.route("/user/<int:user_id>")
 class User(MethodView):
-    """
-    This resource can be useful when testing our Flask app.
-    We may not want to expose it to public users, but for the
-    sake of demonstration in this course, it can be useful
-    when we are manipulating data regarding the users.
-    """
 
     @blp.response(200, UserSchema)
     def get(self, user_id):
@@ -115,7 +117,7 @@ class TokenRefresh(MethodView):
     def post(self):
         current_user = get_jwt_identity()
         new_token = create_access_token(identity=current_user, fresh=False)
-        # Make it clear that when to add the refresh token to the blocklist will depend on the app design
+        
         jti = get_jwt()["jti"]
         BLOCKLIST.add(jti)
         return {"access_token": new_token}, 200
