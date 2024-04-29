@@ -11,7 +11,7 @@ Think of the API as the bridge between your app and the servers. It lets your ap
 2. **Manage Items**: Add new items to stores, making sure the inventory stays fresh and exciting.
 3. **Retrieve Data**: Get all the details about stores and their items whenever needed.
 
-## How to Talk to the API
+## How to Talk to the API [ API documentation [here](https://flask-rest-apis-e2e.onrender.com/swagger-ui)]
 
 Just like talking to a friend, the API has specific ways to communicate. Here are the main ones:
 
