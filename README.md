@@ -1,12 +1,11 @@
 # Flask REST API for Store Management: End to End Project (Live on render.com)
 
-Welcome to the Flask REST API project, where seamless communication between applications and servers is our specialty. Explore the capabilities of this project:
-
 ## Functionality Overview
 
 1. **Store Creation**: Empower your platform with new stores effortlessly.
 2. **Item Management**: Keep your inventory dynamic by adding new items to stores.
 3. **Data Retrieval**: Access comprehensive details about stores and their items on demand.
+4. **User Management**: Register user and access functionalites after login using 'JWT' at the back end.
 
 ## API Interaction
 
@@ -35,6 +34,7 @@ This project boasts a versatile tech stack, including:
 - **API Documentation**: Swagger
 - **Background Tasks**: Redis
 - **Containerization**: Docker
+- **Notification**: Mailgun
 
 ## Code Quality Assurance
 
