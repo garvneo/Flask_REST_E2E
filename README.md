@@ -1,4 +1,4 @@
-# Flask REST API for Store Management: End to End Project (Live on [Render.com](https://flask-rest-apis-e2e.onrender.com))
+# Flask REST API for Store Management: End to End Project (Live on [Render.com](https://flask-rest-apis-e2e.onrender.com/swagger-ui))
 
 ## Functionality Overview
 
@@ -21,7 +21,7 @@ Experience efficient communication as the API responds with structured JSON, ens
 
 ## Access and Exploration
 
-Discover the live project deployed on [Render.com](https://flask-rest-apis-e2e.onrender.com), seamlessly integrated with Swagger UI for intuitive exploration and interaction.
+Discover the live project deployed on [Render.com](https://flask-rest-apis-e2e.onrender.com/swagger-ui), seamlessly integrated with Swagger UI for intuitive exploration and interaction.
 
 ## Technology Stack
 
